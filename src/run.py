@@ -27,26 +27,24 @@ def main():
     DD = f"{date_obj.day:02d}"
 
     # Define directories
-    raw_data_dir = f"/Projects/GEOS_IT_cubed_sphere/raw/{YYYY}/{MM}/{DD}"
+    # raw_data_dir = f"/Projects/GEOS_IT_cubed_sphere/raw/{YYYY}/{MM}/{DD}"
     # raw_ctm_data_dir = f"/Projects/GEOS_IT_cubed_sphere/raw/{YYYY}/{MM}/{DD}"
-    raw_ctm_data_dir = (
-        f"/ExtData/ExtData/GEOS_C180/GEOS_IT_Raw/Missing_CTM/1998-2023/{YYYY}/{MM}/{DD}"
-    )
-    output_dir = f"/Projects/GEOS_IT_cubed_sphere/GEOS_C180/GEOS_IT/{YYYY}/{MM}"
+    raw_ctm_data_dir = f"/ExtData/ExtData/GEOS_C720/GEOS_FP_Raw/Y{YYYY}/M{MM}/D{DD}"
+    output_dir = f"/Projects/GEOS_FP_cubed_sphere/GEOS_C720/GEOS_FP/{YYYY}/{MM}"
 
-    if not os.path.exists(raw_data_dir):
-        print(f"Invalid Raw Data Directory: {raw_data_dir}", file=sys.stderr)
+    if not os.path.exists(raw_ctm_data_dir):
+        print(f"Invalid Raw Data Directory: {raw_ctm_data_dir}", file=sys.stderr)
         sys.exit(2)
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
     # Process files for each collection
-    A1(date_to_process, raw_data_dir, output_dir)
-    A3cld(date_to_process, raw_data_dir, output_dir)
-    A3mstC(date_to_process, raw_data_dir, output_dir)
-    A3mstE(date_to_process, raw_data_dir, output_dir)
-    A3dyn(date_to_process, raw_data_dir, output_dir)
-    I3(date_to_process, raw_data_dir, output_dir)
+    # A1(date_to_process, raw_data_dir, output_dir)
+    # A3cld(date_to_process, raw_data_dir, output_dir)
+    # A3mstC(date_to_process, raw_data_dir, output_dir)
+    # A3mstE(date_to_process, raw_data_dir, output_dir)
+    # A3dyn(date_to_process, raw_data_dir, output_dir)
+    # I3(date_to_process, raw_data_dir, output_dir)
 
     CTM_A1(date_to_process, raw_ctm_data_dir, output_dir)
     CTM_I1(date_to_process, raw_ctm_data_dir, output_dir)

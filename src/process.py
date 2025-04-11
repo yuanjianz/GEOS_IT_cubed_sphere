@@ -30,7 +30,7 @@ class Collection:
 
             # Create the output file path
             daily_filename = (
-                f"GEOSIT.{date.strftime('%Y%m%d')}.{self.processed_collection}.C180.nc"
+                f"GEOSFP.{date.strftime('%Y%m%d')}.{self.processed_collection}.C720.nc"
             )
             daily_file_path = os.path.join(output_dir, daily_filename)
 
@@ -62,12 +62,12 @@ class Collection:
         datasets = []
 
         while current_time < end_time:
-            time_str = current_time.strftime('%Y-%m-%dT%H%M')
+            time_str = current_time.strftime('%Y%m%d_%H%M')
             temp_datasets = []
 
             for collection_name, variables in variable_map.items():
 
-                filename = f"GEOS.it.asm.{collection_name}.GEOS5294.{time_str}.V01.nc4"
+                filename = f"GEOS.fp.asm.{collection_name}.{time_str}.V01.nc4"
                 file_path = os.path.join(directory, filename)
 
                 if os.path.exists(file_path):

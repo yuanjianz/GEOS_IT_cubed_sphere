@@ -37,8 +37,8 @@ def compress_file(file_path_before, output_dir, file_name_after):
 
 def compress_and_chunk_encoding(ds):
     chunk_sizes = {
-        "Xdim": 180,
-        "Ydim": 180,
+        "Xdim": 720,
+        "Ydim": 720,
         "nf": 6,
         "lev": 1,
         "time": 1,
@@ -46,7 +46,7 @@ def compress_and_chunk_encoding(ds):
     encoding = {}
     for var in ds.data_vars:
         encoding[var] = {
-            "zlib": True, 
+            "zlib": True,
             "complevel": 5,
             "chunksizes": tuple(chunk_sizes[dim] for dim in ds[var].dims),
         }
