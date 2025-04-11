@@ -3,6 +3,9 @@ import os
 from datetime import datetime
 from variables import A1, A3cld, A3mstC, A3mstE, A3dyn, I3, CTM_A1, CTM_I1, CN
 import warnings
+import sys
+
+sys.dont_write_bytecode = True
 
 # Ignore specific xarray UserWarning about duplicate dimension names
 warnings.filterwarnings(
